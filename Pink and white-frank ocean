@@ -1,1 +1,104 @@
+#pink and white
+bee ="C:/Users/Sicily Anderson/Downloads/bee.wav"
+use_synth :piano
+use_bpm 160
+define :hum do
+  play :g4
+  sleep 1.5
+end
+define :b1 do
+  play :d3
+  play :bb3
+  play :g3
+  sleep 1
+  
+end
+define :b2 do
+  play :c3
+  play :a3
+  play :f3
+  sleep 1
+  
+end
+define :b3 do
+  play :b3
+  play :g3
+  play :e3
+  sleep 1
+  
+end
 
+
+sample bee
+sleep 3.4
+
+live_loop :background do
+  6.times do
+    b1
+  end
+  6.times do
+    b2
+  end
+  9.times do
+    b3
+  end
+end
+
+
+
+
+sleep 9
+play :d5
+sleep 0.5
+play :bb4
+sleep 0.5
+play :g4, sustain: 2
+sleep 2
+
+sleep 2
+play :c5
+sleep 0.5
+play :a4
+sleep 0.5
+play :f4
+sleep 2
+
+sleep 1
+play :a4
+sleep 1
+play :f4
+sleep 1
+hum
+hum
+hum
+hum
+
+play :bb4
+sleep 0.5
+play :b4
+sleep 0.5
+play :c5
+sleep 1
+play :d5
+sleep 1
+
+play :c5
+sleep 1
+play :bb4
+sleep 2
+
+play :bb4
+sleep 0.5
+play :c5
+sleep 0.5
+play :a4
+sleep 1
+play :a4
+sleep 1
+
+play :a4
+sleep 0.5
+play :g4
+sleep 0.5
+play :b4
+sleep 2
