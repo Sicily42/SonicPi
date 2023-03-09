@@ -6,48 +6,51 @@ define :hum do
   play :g4
   sleep 1.5
 end
+a=0.8
 define :b1 do
-  play :d3
-  play :bb3
-  play :g3
-  sleep 1
-  
+  6.times do
+    play :d3, amp: a
+    play :bb3, amp: a
+    play :g3, amp: a
+    sleep 1
+    a=a-0.13
+  end
+  a=0.8
 end
 define :b2 do
-  play :c3
-  play :a3
-  play :f3
+  play :c3, amp: 0.2
+  play :a3, amp: 0.2
+  play :f3, amp: 0.2
   sleep 1
   
 end
 define :b3 do
-  play :b3
-  play :g3
-  play :e3
+  play :b3, amp: 0.2
+  play :g3, amp: 0.2
+  play :e3, amp: 0.2
   sleep 1
   
 end
 
 
-sample bee
-sleep 3.4
 
 live_loop :background do
-  6.times do
+  use_synth :fm
+  with_fx :reverb do
     b1
-  end
-  6.times do
-    b2
-  end
-  9.times do
-    b3
+    6.times do
+      b2
+    end
+    9.times do
+      b3
+    end
   end
 end
 
+sleep 19
+sample bee
+sleep 3.4
 
-
-
-sleep 9
 play :d5
 sleep 0.5
 play :bb4
