@@ -1,26 +1,29 @@
 #pink and white
 bee ="C:/Users/Sicily Anderson/Downloads/bee.wav"
+voice="C:/Users/Sicily Anderson/Downloads/voice.wav"
 use_synth :piano
 use_bpm 160
 define :hum do
   play :g4
   sleep 1.5
 end
-a=0.8
+notes=[:c3,:a3, :f3]
+index=0
+n=notes
+a=0.6
 define :b1 do
   6.times do
     play :d3, amp: a
     play :bb3, amp: a
     play :g3, amp: a
     sleep 1
-    a=a-0.13
+    a=a-0.1
   end
   a=0.8
 end
 define :b2 do
-  play :c3, amp: 0.2
-  play :a3, amp: 0.2
-  play :f3, amp: 0.2
+  play n[index], amp: 0.2
+  index=index+1
   sleep 1
   
 end
@@ -32,7 +35,8 @@ define :b3 do
   
 end
 
-
+sample bee
+sleep 3.4
 
 live_loop :background do
   use_synth :fm
@@ -47,10 +51,11 @@ live_loop :background do
   end
 end
 
-sleep 19
-sample bee
-sleep 3.4
 
+
+sleep 19
+sample voice
+sleep 0.3
 play :d5
 sleep 0.5
 play :bb4
