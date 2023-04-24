@@ -2,7 +2,15 @@
 ikylm="C:/Users/Sicily Anderson/Downloads/ik you love me.wav"
 mylene="C:/Users/Sicily Anderson/Downloads/mylene.wav"
 
+
+
+
+
 use_bpm 121
+nte=[:c3,:a3, :f3]
+index=0
+c=nte
+
 notes=[:a2,:e3,:a3,:e3]
 index=0
 b=index
@@ -48,15 +56,13 @@ define :bass do
   play :g2
   sleep 0.5
 end
-417
+
 sample mylene
 sleep 45
 sample :vinyl_backspin
 sample ikylm
 sleep 1.5
 live_loop :back do
-  play n[b], amp: a
-  print (b)
   if b==:a2
     sleep 1.5
   elsif b==:e3
@@ -64,10 +70,12 @@ live_loop :back do
   else
     sleep 1.5
   end
-  
+  play n[b], amp: a
+  print (b)
   b=b+1
   a=a+0.2
 end
+sleep 1.5
 play :a2
 sleep 1
 sleep 0.5
@@ -98,6 +106,9 @@ sleep 0.5
 play :g2
 sleep 0.5
 
+live_loop :back do
+  stop
+end
 live_loop :background do
   bass
 end
@@ -107,4 +118,8 @@ live_loop :twinkle do
   twinkie 1
   twinkie 4
 end
-sample ikylm
+4.times do
+  sample ikylm
+  sleep 20
+end
+
