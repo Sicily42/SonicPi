@@ -1,0 +1,37 @@
+    def _gopigo3_command_gold(self):
+        Error = 0
+        robot_operating = True
+        distance_sensor= gopigo3.init_distance_sensor()
+        servo = gopigo3.init_servo("SERVO1")
+        
+        while robot_operating:
+            
+            servo.rotate_servo(90)
+            sleep(0.5)
+            front_reading = distance_sensor.read_mm()
+            print(front_reading)
+            sleep(0.5)
+            
+            servo.rotate_servo(180)
+            sleep(0.5)
+            right_reading = distance_sensor.read_mm()
+            print(right_reading)
+            sleep(0.5)
+            
+            if front_reading == Error:
+                Print("nope")
+                robot_operating = False
+            
+                elif front_reading <210 and right_reading<203:
+                gopigo3.stop()
+                elif front_reading>210 and right_reading<203:
+                    gopigo3.forward() 
+                elif front_reading<210 and right_reading>203:
+                    gopigo3.turn_degrees(-90)
+                    
+                    else:
+                        self.gopigo3.forward()
+                        self.gopigo3.set_speed(400)
+        sleep(0.08)
+        
+        return "exit"
