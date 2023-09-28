@@ -1,0 +1,8 @@
+  def _gopigo3_command_bronze(self):
+        self.gopigo3.drive_inches(23)
+        self.gopigo3.turn_degrees(-83)
+        self.gopigo3.486drive_inches(42)
+        self.gopigo3.turn_degrees(83)
+        self.gopigo3.drive_inches(70)
+        
+        return "moving"
