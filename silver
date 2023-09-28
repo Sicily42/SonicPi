@@ -1,0 +1,36 @@
+    def _gopigo3_command_silver(self):
+        current_distance = True
+        Error = 0
+        wall = 0
+        robot_operating = True
+        current_distance = distance_sensor.read_mm()
+        
+        while robot_operating:
+            x = distance_sensor.read_mm()
+            gopigo3.forward()
+            print(wall)
+            
+            if current_distance == Error:
+                print("test") 
+                robot_operating= False
+                
+            elif x < 203:
+                print(x)
+                print(wall)
+                wall=wall+1
+                if wall <=2:
+                    self.gopigo3.turn_degrees(90)
+                    
+                elif wall<=4:
+                    self.gopigo3.turn_degrees(-90)
+                elif wall>4:
+                    self.gopigo3.stop()
+                    robot_operating = False
+                
+                else:
+                    gopigo3.set_speed(400)
+                    self.gopigo3.forward()
+                
+        sleep(0.08)
+        
+        return "exit"
